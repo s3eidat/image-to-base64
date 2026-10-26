@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Image to Base64 — Free Image to Data URI Converter (and back) | S3eidat Tools</title>
+<meta name="description" content="Convert images to Base64 data URIs with ready CSS, HTML and Markdown snippets, or paste a data URI to preview and download the image. Free, private, runs in your browser.">
+<meta property="og:title" content="Image to Base64 — free, private data URI converter">
+<meta property="og:description" content="Images to data URIs and back. Runs 100% in your browser.">
+<meta property="og:image" content="screenshot.png">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+</head>
+<body data-tool="image-to-base64">
+<main class="s3-main">
+  <section class="s3-hero">
+    <h1>Image to Base64</h1>
+    <p>Turn an image into a data URI with ready-to-paste CSS, HTML and Markdown, or paste a data URI to see and download the image. Nothing is uploaded.</p>
+  </section>
+
+  <div class="seg" id="mode" role="group" aria-label="Direction">
+    <button aria-pressed="true" data-v="enc">Image → Base64</button>
+    <button aria-pressed="false" data-v="dec">Base64 → Image</button>
+  </div>
+
+  <div id="enc" class="b64-grid mt">
+    <section class="card stack">
+      <label class="drop" id="drop">
+        <input type="file" accept="image/*,.svg,.ico" hidden>
+        <svg class="i"><use href="#i-upload"/></svg>
+        <b>Drop an image, click to choose, or paste</b>
+        <span class="faint">PNG, JPG, GIF, WebP, SVG, AVIF, ICO…</span>
+      </label>
+      <div id="encInfo" class="stack" hidden>
+        <div class="b64-prev checker"><img id="encImg" alt="Selected image preview"></div>
+        <div class="row between"><b class="b64-name" id="encName"></b><span class="chip" id="encWarn"></span></div>
+        <div class="stats" id="encStats"></div>
+      </div>
+    </section>
+    <section class="card stack" id="snips">
+      <div class="empty" id="encEmpty"><b>No image yet</b>Pick an image and its data URI, Base64 and snippets appear here.</div>
+    </section>
+  </div>
+
+  <div id="dec" class="b64-grid mt" hidden>
+    <section class="card stack">
+      <div class="row between">
+        <h2>Paste a data URI or Base64</h2>
+        <button class="btn ghost small" id="decClear">Clear</button>
+      </div>
+      <textarea class="textarea" id="decIn" dir="ltr" spellcheck="false" placeholder="data:image/png;base64,iVBORw0KGgo…  or just the Base64 part. CSS url(…) and <img src=…> work too."></textarea>
+      <div class="row"><span class="chip" id="decStatus">Waiting for input</span></div>
+    </section>
+    <section class="card stack">
+      <div class="row between">
+        <h2>Result</h2>
+        <button class="btn primary small" id="decDl" disabled><svg class="i"><use href="#i-download"/></svg>Download</button>
+      </div>
+      <div class="b64-prev checker" id="decPrev"><span class="faint" id="decNoPrev">The image preview appears here</span><img id="decImg" alt="Decoded image preview" hidden></div>
+      <div class="stats" id="decStats"></div>
+    </section>
+  </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

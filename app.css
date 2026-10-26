@@ -1,0 +1,16 @@
+.b64-grid { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 860px) { .b64-grid { grid-template-columns: minmax(0, 1fr); } }
+#dec.b64-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 760px) { #dec.b64-grid { grid-template-columns: minmax(0, 1fr); } }
+.b64-grid > .card { min-width: 0; grid-template-columns: minmax(0, 1fr); }
+.drop.b64-small { padding: 16px; }
+.drop.b64-small > svg.i { display: none; }
+.b64-prev { display: grid; place-items: center; min-height: 160px; max-height: 320px; padding: 14px; border-radius: 12px; border: 1px solid var(--line); overflow: hidden; }
+.b64-prev img { max-width: 100%; max-height: 290px; object-fit: contain; image-rendering: auto; }
+.b64-name { overflow-wrap: anywhere; font-size: 14px; }
+.b64-snip { display: grid; gap: 8px; }
+.b64-snip + .b64-snip { padding-top: 12px; border-top: 1px solid var(--line); }
+.b64-out { min-height: 74px; height: 74px; font-size: 12px; word-break: break-all; }
+#decIn { min-height: 300px; word-break: break-all; }
+#encStats, #decStats { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+#encStats .stat b, #decStats .stat b { font-size: 17px; overflow-wrap: anywhere; }
